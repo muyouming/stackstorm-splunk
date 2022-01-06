@@ -10,16 +10,6 @@
     secret: false
     required: true
     default: 8089
-  username:
-    description: "Splunk username"
-    type: "string"
-    secret: false
-    required: true
-  password:
-    description: "Splunk password"
-    type: "string"
-    secret: true
-    required: true
   scheme:
     description: "Protocol used for Splunk API - http or https"
     type: "string"

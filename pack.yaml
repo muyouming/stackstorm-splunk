@@ -1,6 +1,6 @@
 ---
-ref: splunk
-name: splunk
+ref: splunk2
+name: splunk2
 description: Splunk integration pack
 keywords:
   - splunk
