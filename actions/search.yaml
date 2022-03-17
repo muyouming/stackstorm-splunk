@@ -14,3 +14,8 @@ parameters:
     description: "Search query (e.g. 'search * | head 10')"
     required: true
     position: 1
+  splunkToken:
+    type: string
+    description: "Your API Access token"
+    required: false
+    position: 2

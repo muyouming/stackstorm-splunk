@@ -23,7 +23,7 @@ class OneShotSearch(Action):
         else:
             raise ValueError("No Splunk configuration details found")
 
-    def run(self, instance, query):
+    def run(self, instance, query,splunkToken):
         """stackstorm run method"""
         # Find config details
         if instance:
@@ -32,21 +32,29 @@ class OneShotSearch(Action):
             splunk_config = self.config['splunk_instances'].get('default')
 
         try:
-            if splunk_config.get('splunkToken'):
-                self.service = client.connect(
-                    host=splunk_config.get('host'),
-                    port=splunk_config.get('port'),
-                    splunkToken=splunk_config.get('splunkToken'),
-                    scheme=splunk_config.get('scheme'),
-                    verify=splunk_config.get('verify'))
+            if len(splunkToken)==0 or splunkToken is None:
+                if  splunk_config.get('splunkToken'):
+                    self.service = client.connect(
+                        host=splunk_config.get('host'),
+                        port=splunk_config.get('port'),
+                        splunkToken=splunk_config.get('splunkToken'),
+                        scheme=splunk_config.get('scheme'),
+                        verify=splunk_config.get('verify'))
+                else:
+                    self.service = client.connect(
+                        host=splunk_config.get('host'),
+                        port=splunk_config.get('port'),
+                        username=splunk_config.get('username'),
+                        password=splunk_config.get('password'),
+                        scheme=splunk_config.get('scheme'),
+                        verify=splunk_config.get('verify'))
             else:
                 self.service = client.connect(
-                    host=splunk_config.get('host'),
-                    port=splunk_config.get('port'),
-                    username=splunk_config.get('username'),
-                    password=splunk_config.get('password'),
-                    scheme=splunk_config.get('scheme'),
-                    verify=splunk_config.get('verify'))
+                        host=splunk_config.get('host'),
+                        port=splunk_config.get('port'),
+                        splunkToken=splunkToken,
+                        scheme=splunk_config.get('scheme'),
+                        verify=splunk_config.get('verify'))
         except BaseException as err:
             raise Exception(
                 "Failed to connect to Splunk Instance {} with error {}".format(splunk_config, err)
