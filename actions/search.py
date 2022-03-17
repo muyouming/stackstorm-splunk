@@ -32,7 +32,7 @@ class OneShotSearch(Action):
             splunk_config = self.config['splunk_instances'].get('default')
 
         try:
-            if len(splunkToken)==0 or splunkToken is None:
+            if splunkToken is None:
                 if  splunk_config.get('splunkToken'):
                     self.service = client.connect(
                         host=splunk_config.get('host'),
