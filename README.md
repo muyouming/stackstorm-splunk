@@ -9,10 +9,16 @@ to `/opt/stackstorm/configs/splunk.yaml` and edit as required.
 
 It should contain:
 
+* ``instance`` - Friendly instance name
 * ``host`` - Splunk server
-* ``port`` - Splunk API port (default 8089)
+* ``port`` - Splunk API port (default: 8089)
 * ``username`` - Splunk username
 * ``password`` - Splunk password
+* ``splunkToken`` - Bear token from splunk for authentication
+* ``scheme`` - Protocol for contacting Splunk API (default: https)
+* ``verify`` - Should vertificate validation be performed (default: true)
+* ``hec_endpoint`` - The Splunk's HEC URL (default: /services/collector)
+* ``hec_port`` - The port HEC is listening on (default: 8088)
 
 You can also use dynamic values from the datastore. See the
 [docs](https://docs.stackstorm.com/reference/pack_configs.html) for more info.
@@ -60,9 +66,19 @@ result:
 lhill@st2:~$
 ```
 
+### get_user
+
+Retrieves user info by name. E.g., `st2 run splunk.get_user user=admin`.
+
 ## Sensors
 
 No sensors yet...but pull requests welcome!
 
 See https://stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/ for an example of how to submit events from Splunk
 into StackStorm
+
+## Maintainers
+
+Active pack maintainers with review & write repository access and expertise with Splunk:
+
+* Sean Elliott ([@satellite-no](https://github.com/satellite-no)), <satellite-no@users.noreply.github.com> deepwatch

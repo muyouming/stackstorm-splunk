@@ -1,0 +1,7 @@
+---
+host: localhost
+port: 8089
+scheme: https
+verify: true
+hec_endpoint: /services/collector
+hec_port: 8088
