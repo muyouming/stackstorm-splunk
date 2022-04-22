@@ -1,13 +1,11 @@
 ---
-ref: splunk2
-name: splunk2
-description: Splunk integration pack
+ref: sap
+name: sap
+description: sap integration pack
 keywords:
-  - splunk
-  - monitoring
-  - alerting
+  - sap
 version: 1.0.0
-author : StackStorm, Inc.
-email : info@stackstorm.com
+author : muyouming.
+email : muyouming@gmail.com
 python_versions:
   - "3"

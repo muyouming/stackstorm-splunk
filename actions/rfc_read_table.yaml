@@ -1,0 +1,37 @@
+---
+name: search
+runner_type: python-script
+description: SAP RFC_READ_TABLE
+entry_point: rfc_read_table.py
+parameters:
+  username:
+    description: "SAP username"
+    type: "string"
+    secret: false
+    required: true
+  password:
+    description: "SAP password"
+    type: "string"
+    secret: true
+    required: true
+  Fields:
+    type: string
+    description: Search query (e.g. 'search * | head 10')
+    required: true
+  SQLTable:
+    type: string
+    description: Search query (e.g. 'search * | head 10')
+    required: true
+  Where:
+    type: string
+    description: Search query (e.g. 'search * | head 10')
+    required: true
+  MaxRows:
+    type: string
+    description: Search query (e.g. 'search * | head 10')
+    required: false
+  FromRow:
+    type: string
+    description: Search query (e.g. 'search * | head 10')
+    required: false
+

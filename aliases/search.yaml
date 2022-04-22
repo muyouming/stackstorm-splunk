@@ -1,4 +1,4 @@
----
+ ---
 name: search
 action_ref: splunk2.search
 description: Splunk one-shot search

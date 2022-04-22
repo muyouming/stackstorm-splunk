@@ -1,2 +1,2 @@
-splunk-sdk
+pyrfc
 
